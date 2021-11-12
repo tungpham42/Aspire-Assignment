@@ -33,3 +33,16 @@ There are many ways to install Laravel, but in this test I will use the easiest
     cd loan-app
     
 If you don't have Composer installed, just go to https://getcomposer.org/download/ to get it.
+
+Setup Database
+-
+
+Navigate to .env file, then edit
+
+    DB_DATABASE=sample_db
+    
+    DB_USERNAME=sample_user
+    
+    DB_PASSWORD=sample_pass
+    
+with your desired credentials
