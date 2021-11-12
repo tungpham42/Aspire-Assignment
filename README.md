@@ -46,3 +46,14 @@ Navigate to .env file, then edit
     DB_PASSWORD=sample_pass
     
 with your desired credentials
+
+Migration
+-
+
+Run this code to create Model, Migration and Factory files
+
+    php artisan make:model Loan -mf
+    
+After modifying the Loan.php file, run
+
+    php artisan migrate
