@@ -135,11 +135,11 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
 1. Index
 
     public function index()
-
+    
     {
 
         return Loan::orderBy('created_at', 'asc')->get();  //returns values in ascending order
-
+    
     }
     
 2. Store
@@ -221,3 +221,13 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
     }
     
 6. Repay
+
+    public function repay($id)
+    
+    {
+    
+        $loan = Loan::findorFail($id);
+        
+        return number_format($loan->amount / $loan->term, 2);
+        
+    }
