@@ -238,7 +238,7 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
     
         $loan = Loan::findorFail($id);
         
-        return number_format($loan->amount / $loan->term, 2);
+        return number_format($loan->amount / $loan->term, 2) . ' VND';
         
     }
  
