@@ -123,9 +123,20 @@ After that, we modify the DatabaseSeeder.php file inside the /database/seeders f
     
         Loan::factory(500)->create();
         
+        DB::table('users')->insert([
+        
+            'name' => "Tung Pham",
+            
+            'email' => 'tung.42@gmail.com',
+            
+            'password' => bcrypt('12345'),
+            
+        ]);
+        
     }
 
-<img width="394" alt="Screen Shot 2021-11-13 at 10 50 15" src="https://user-images.githubusercontent.com/3462233/141604669-37e28d58-af22-4096-8550-dea8b1005681.png">
+<img width="454" alt="Screen Shot 2021-11-13 at 13 56 55" src="https://user-images.githubusercontent.com/3462233/141609338-b9a64b9c-0016-42ad-948e-c41c46f4dc2a.png">
+
 
 Then we run the following command
 
