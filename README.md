@@ -112,18 +112,18 @@ We should modify the Factory file first, this file is located in /database/facto
         
     }
 
-Then, we run the following command
+After that, we modify the DatabaseSeeder.php file inside the /database/seeders folder
 
-    php artisan make:seeder LoanSeeder
-
-After that, we modify the Seeder file inside the /database/seeders folder
-
-    public function run() {
+    public function run()
     
-        Loan::factory()->times(42)->create();
+    {
+    
+        Loan::factory(500)->create();
         
     }
-    
+
+<img width="394" alt="Screen Shot 2021-11-13 at 10 50 15" src="https://user-images.githubusercontent.com/3462233/141604669-37e28d58-af22-4096-8550-dea8b1005681.png">
+
 Then we run the following command
 
     php artisan migrate:fresh --seed
