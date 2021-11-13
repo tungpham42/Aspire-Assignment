@@ -254,7 +254,7 @@ Put the following line into the api.php file, which is inside the /routes folder
     
         "uses" => 'App\Http\Controllers\LoanController@repay',
         
-        "as" => 'repay'
+        "as" => 'loans.repay'
         
     ]);
     
