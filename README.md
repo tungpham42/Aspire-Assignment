@@ -1,6 +1,11 @@
 Aspire Assignment for Tung Pham
 =
 
+Introduction
+-
+
+My name is Tung Pham and I create this app as a mini-aspire API. This is a Loan app built with Laravel 8. There are 2 main fields in the `loans` table. The first one is `amount` which is the amount of loan in VND. The second one is `term` which is the duration of loan in week(s). The loan term can vary from 1 week to 52 weeks.
+ 
 How to install Laravel 8
 -
 
