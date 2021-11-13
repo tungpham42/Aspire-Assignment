@@ -1,66 +1,189 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Aspire Assignment for Tung Pham
+=
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+How to install Laravel 8
+-
 
-## About Laravel
+Firstly, you must check if your server meets the requirements:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+    PHP >= 7.3
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    BCMath PHP Extension
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    Ctype PHP Extension
 
-## Learning Laravel
+    Fileinfo PHP Extension
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    JSON PHP Extension
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    Mbstring PHP Extension
 
-## Laravel Sponsors
+    OpenSSL PHP Extension
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    PDO PHP Extension
 
-### Premium Partners
+    Tokenizer PHP Extension
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+    XML PHP Extension
 
-## Contributing
+There are many ways to install Laravel, but in this test I will use the easiest
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    composer create-project laravel/laravel loan-app
+    
+    cd loan-app
+    
+If you don't have Composer installed, just go to https://getcomposer.org/download/ to get it.
 
-## Code of Conduct
+Setup Database
+-
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Navigate to .env file, then edit
 
-## Security Vulnerabilities
+    DB_DATABASE=sample_db
+    
+    DB_USERNAME=sample_user
+    
+    DB_PASSWORD=sample_pass
+    
+with your desired credentials
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Migration
+-
 
-## License
+Run this code to create Model, Migration and Factory files
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    php artisan make:model Loan -mf
+    
+We add the following code into the Loan model file
+
+    protected $fillable = [
+    
+        'amount',
+        
+        'term',
+        
+    ];
+    
+Now we modify the migrate file in the /database/migrations folder
+
+    public function up()
+    
+    {
+    
+        Schema::create('loans', function (Blueprint $table) {
+        
+            $table->id();
+            
+            $table->integer('amount');
+            
+            $table->integer('term');
+            
+            $table->timestamps();
+            
+        });
+        
+    }
+
+Then we run the following command to create the table
+
+    php artisan migrate
+
+Seeding
+-
+
+We should modify the Factory file first
+
+    public function definition()
+    
+    {
+    
+        return [
+        
+            'amount' => $this->faker->numberBetween(500, 500000000),
+            
+            'term' => $this->faker->numberBetween(1, 52),
+            
+        ];
+        
+    }
+
+Then, we run the following command
+
+    php artisan make:seeder LoanSeeder
+
+After that, we modify the Seeder file inside the /database/seeders folder
+
+    public function run() {
+    
+        Loan::factory()->times(42)->create();
+        
+    }
+    
+Then we run the following command
+
+    php artisan migrate:fresh --seed
+ 
+Creating the API
+-
+
+Firstly, run the command
+
+    php artisan make:controller LoanController --resource
+
+Now, go to app/Http/Controllers/LoanController, there are 6 methods that we should take care of: index, store, show, update, destroy, and repay.
+
+1. Index
+
+    public function index()
+    {
+        return Loan::orderBy('created_at', 'asc')->get();  //returns values in ascending order
+    }
+    
+2. Store
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [ //inputs are not empty or null
+            'amount' => 'required',      
+            'term' => 'required',      
+        ]);
+        $loan = new Loan;
+        $loan->amount = $request->input('amount'); //retrieving user inputs
+        $loan->term = $request->input('term');  //retrieving user inputs
+        $loan->save(); //storing values as an object
+        return $loan; //returns the stored value if the operation was successful. 
+    }
+    
+3. Show
+
+    public function show($id)
+    {
+        return Loan::findorFail($id); //searches for the object in the database using its id and returns it.
+    }
+    
+4. Update
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [ //inputs are not empty or null
+            'amount' => 'required',    
+            'term' => 'required',      
+        ]);
+        $loan = Loan::findorFail($id); // uses the id to search values that need to be updated.
+        $loan->amount = $request->input('amount'); //retrieving user inputs
+        $loan->term = $request->input('term');  //retrieving user inputs
+        $loan->save(); //storing values as an object
+        return $loan; //returns the stored value if the operation was successful.
+    }
+    
+5. Destroy
+
+    public function destroy($id)
+    {
+        $loan = Loan::findorFail($id); //searching for object in database using ID
+        if($loan->delete()){ //deletes the object
+            return 'Deleted successfully'; //shows a message when the delete operation was successful.   
+        }
+    }
+    
+6. Repay
