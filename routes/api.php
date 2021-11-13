@@ -21,3 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::resource('loans', LoanController::class);
+Route::get('/loans/{loan}/repay', [
+    "uses" => 'App\Http\Controllers\LoanController@repay',
+    "as" => 'loans.repay'
+]);

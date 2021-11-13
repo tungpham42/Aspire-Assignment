@@ -70,6 +70,18 @@ class LoanController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function repay($id)
+    {
+        $loan = Loan::findorFail($id);
+        return number_format($loan->amount / $loan->term, 2) . ' VND';
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
