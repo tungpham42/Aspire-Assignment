@@ -306,6 +306,16 @@ As this app only allows authenticated users to use, we need to implement a Authe
 
 When you use the API, you must fill in the credentials.
 
+Run the API
+-
+
+- http://localhost:8000/api/loans -> Get all loans
+- http://localhost:8000/api/loans/42 -> Get loan with ID 42
+- http://localhost:8000/api/loans -> Create new loan, with POST method and `amount` and `term` values
+- http://localhost:8000/api/loans/42?amount=5000&term=52 -> Update loan, with PATCH method
+- http://localhost:8000/api/loans/42 -> Delete loan, with DELETE method
+- http://localhost:8000/api/loans/42/repay -> Repay weekly amount
+
 <img width="370" alt="Screen Shot 2021-11-13 at 13 13 47" src="https://user-images.githubusercontent.com/3462233/141608221-de141a90-8691-4333-aa4c-f8a190195739.png">
 
 If you have any query, please contact me at tung.42@gmail.com
