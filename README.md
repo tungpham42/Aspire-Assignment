@@ -286,4 +286,15 @@ After all, we can now run this app in localhost
     
 It will use port 8000, so please navigate to http://localhost:8000
 
+Basic Authentication
+-
+
+As this app only allows authenticated users to use, we need to implement a Authentication system. For this test, I choose to use Basic Auth. By default, the auth.basic middleware will assume the email column on your users database table is the user's "username". In this test, the username is `tung.42@gmail.com` and the password is `12345`.
+
+<img width="732" alt="Screen Shot 2021-11-13 at 13 11 33" src="https://user-images.githubusercontent.com/3462233/141608183-b7ad2fb7-887d-450b-8a6f-101a8f0172db.png">
+
+When you use the API, you must fill in the credentials.
+
+<img width="370" alt="Screen Shot 2021-11-13 at 13 13 47" src="https://user-images.githubusercontent.com/3462233/141608221-de141a90-8691-4333-aa4c-f8a190195739.png">
+
 If you have any query, please contact me at tung.42@gmail.com
