@@ -289,7 +289,7 @@ It will use port 8000, so please navigate to http://localhost:8000
 Basic Authentication
 -
 
-As this app only allows authenticated users to use, we need to implement a Authentication system. For this test, I choose to use Basic Auth. By default, the auth.basic middleware will assume the email column on your users database table is the user's "username". In this test, the username is `tung.42@gmail.com` and the password is `12345`.
+As this app only allows authenticated users to use, we need to implement a Authentication system. For this test, I choose to use Basic Auth. I added `middleware('auth.basic')` to routes of api.php inside /routes folder. By default, the auth.basic middleware will assume the email column on your users database table is the user's "username". In this test, the username is `tung.42@gmail.com` and the password is `12345`.
 
 <img width="732" alt="Screen Shot 2021-11-13 at 13 11 33" src="https://user-images.githubusercontent.com/3462233/141608183-b7ad2fb7-887d-450b-8a6f-101a8f0172db.png">
 
