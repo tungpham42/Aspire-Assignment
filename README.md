@@ -54,7 +54,7 @@ Run this code to create Model, Migration and Factory files
 
     php artisan make:model Loan -mf
     
-We add the following code into the Loan model file
+We add the following code into the Loan model file inside the app/Models folder
 
     protected $fillable = [
     
@@ -91,7 +91,7 @@ Then we run the following command to create the table
 Seeding
 -
 
-We should modify the Factory file first
+We should modify the Factory file first, this file is located in /database/factories folder
 
     public function definition()
     
