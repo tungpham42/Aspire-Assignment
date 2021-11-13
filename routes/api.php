@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::resource('loans', LoanController::class);
+Route::resource('loans', LoanController::class)->middleware('auth.basic');
 Route::get('/loans/{loan}/repay', [
     "uses" => 'App\Http\Controllers\LoanController@repay',
     "as" => 'loans.repay'
-]);
+])->middleware('auth.basic');

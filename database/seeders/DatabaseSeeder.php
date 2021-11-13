@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\Loan;
 use database\factories\LoanFactory;
 
@@ -16,5 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Loan::factory(500)->create();
+        DB::table('users')->insert([
+            'name' => "Tung Pham",
+            'email' => 'tung.42@gmail.com',
+            'password' => bcrypt('12345'),
+        ]);
     }
 }
