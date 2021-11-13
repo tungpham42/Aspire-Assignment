@@ -88,6 +88,7 @@ Now we modify the migrate file in the /database/migrations folder
         });
         
     }
+<img width="649" alt="Screen Shot 2021-11-13 at 11 05 36" src="https://user-images.githubusercontent.com/3462233/141605042-91433360-e007-4813-8746-f32963e1a41f.png">
 
 Then we run the following command to create the table
 
