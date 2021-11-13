@@ -8,6 +8,21 @@
 		{
 			"name": "Get All Loans",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "tung.42@gmail.com",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -39,6 +54,21 @@
 		{
 			"name": "Get Specific Loan",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "tung.42@gmail.com",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -60,6 +90,21 @@
 		{
 			"name": "Create New Loan",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "tung.42@gmail.com",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -106,10 +151,25 @@
 		{
 			"name": "Update Loan",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "tung.42@gmail.com",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/loans/44?amount=5555555&term=52",
+					"raw": "http://localhost:8000/api/loans/501?amount=5555555&term=52",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -118,7 +178,7 @@
 					"path": [
 						"api",
 						"loans",
-						"44"
+						"501"
 					],
 					"query": [
 						{
@@ -137,10 +197,25 @@
 		{
 			"name": "Delete Loan",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "tung.42@gmail.com",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/loans/44",
+					"raw": "http://localhost:8000/api/loans/501",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -149,7 +224,7 @@
 					"path": [
 						"api",
 						"loans",
-						"44"
+						"501"
 					]
 				}
 			},
@@ -158,6 +233,21 @@
 		{
 			"name": "Repay",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "tung.42@gmail.com",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
