@@ -88,6 +88,7 @@ Now we modify the migrate file in the /database/migrations folder
         });
         
     }
+<img width="649" alt="Screen Shot 2021-11-13 at 11 05 36" src="https://user-images.githubusercontent.com/3462233/141605042-91433360-e007-4813-8746-f32963e1a41f.png">
 
 Then we run the following command to create the table
 
@@ -111,6 +112,8 @@ We should modify the Factory file first, this file is located in /database/facto
         ];
         
     }
+
+<img width="664" alt="Screen Shot 2021-11-13 at 12 36 47" src="https://user-images.githubusercontent.com/3462233/141607214-3c3dc5f2-58f1-4970-b9af-63752164760c.png">
 
 After that, we modify the DatabaseSeeder.php file inside the /database/seeders folder
 
