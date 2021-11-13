@@ -113,6 +113,8 @@ We should modify the Factory file first, this file is located in /database/facto
         
     }
 
+<img width="664" alt="Screen Shot 2021-11-13 at 12 36 47" src="https://user-images.githubusercontent.com/3462233/141607214-3c3dc5f2-58f1-4970-b9af-63752164760c.png">
+
 After that, we modify the DatabaseSeeder.php file inside the /database/seeders folder
 
     public function run()
