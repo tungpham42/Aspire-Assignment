@@ -251,3 +251,5 @@ Now we can list the routes with this command
 
     php artisan route:list
 
+<img width="961" alt="Screen Shot 2021-11-13 at 08 35 59" src="https://user-images.githubusercontent.com/3462233/141600931-a01f3206-1a75-481a-a9e2-f83cf506e9ad.png">
+
