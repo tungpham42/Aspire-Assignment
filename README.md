@@ -142,6 +142,8 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
     
     }
     
+<img width="515" alt="index" src="https://user-images.githubusercontent.com/3462233/141601058-5fcea9fd-8b5f-4967-99c9-4214487f73fe.png">
+    
 2. Store
 
     public function store(Request $request)
@@ -168,6 +170,8 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
 
     }
     
+<img width="515" alt="store" src="https://user-images.githubusercontent.com/3462233/141601068-51df9b62-4cc2-4c9d-a77a-205fc4d1b2c3.png">
+    
 3. Show
 
     public function show($id)
@@ -177,6 +181,8 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
         return Loan::findorFail($id); //searches for the object in the database using its id and returns it.
 
     }
+    
+<img width="334" alt="show" src="https://user-images.githubusercontent.com/3462233/141601066-266b3ad6-db23-4f17-a421-2bfdb9561ab1.png">
     
 4. Update
 
@@ -204,6 +210,8 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
 
     }
     
+<img width="466" alt="update" src="https://user-images.githubusercontent.com/3462233/141601063-268401e8-1a6f-4409-84d8-48fdbf4bd557.png">
+    
 5. Destroy
 
     public function destroy($id)
@@ -220,6 +228,8 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
 
     }
     
+<img width="369" alt="destroy" src="https://user-images.githubusercontent.com/3462233/141601061-8c151c5f-7a36-4390-8136-f53132b20769.png">
+    
 6. Repay
 
     public function repay($id)
@@ -232,6 +242,7 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
         
     }
  
+<img width="633" alt="repay" src="https://user-images.githubusercontent.com/3462233/141601059-3dce9828-785d-421b-aea1-400de5438aec.png">
 Registering and Listing routes
 -
 
