@@ -135,55 +135,89 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
 1. Index
 
     public function index()
+
     {
+
         return Loan::orderBy('created_at', 'asc')->get();  //returns values in ascending order
+
     }
     
 2. Store
 
     public function store(Request $request)
+
     {
+
         $this->validate($request, [ //inputs are not empty or null
-            'amount' => 'required',      
-            'term' => 'required',      
+
+            'amount' => 'required',
+
+            'term' => 'required',
+
         ]);
+
         $loan = new Loan;
+
         $loan->amount = $request->input('amount'); //retrieving user inputs
+
         $loan->term = $request->input('term');  //retrieving user inputs
+
         $loan->save(); //storing values as an object
-        return $loan; //returns the stored value if the operation was successful. 
+
+        return $loan; //returns the stored value if the operation was successful.
+
     }
     
 3. Show
 
     public function show($id)
+
     {
+
         return Loan::findorFail($id); //searches for the object in the database using its id and returns it.
+
     }
     
 4. Update
 
     public function update(Request $request, $id)
+
     {
+
         $this->validate($request, [ //inputs are not empty or null
-            'amount' => 'required',    
-            'term' => 'required',      
+
+            'amount' => 'required',
+
+            'term' => 'required',
+
         ]);
+
         $loan = Loan::findorFail($id); // uses the id to search values that need to be updated.
+
         $loan->amount = $request->input('amount'); //retrieving user inputs
+
         $loan->term = $request->input('term');  //retrieving user inputs
+
         $loan->save(); //storing values as an object
+
         return $loan; //returns the stored value if the operation was successful.
+
     }
     
 5. Destroy
 
     public function destroy($id)
+
     {
+
         $loan = Loan::findorFail($id); //searching for object in database using ID
+
         if($loan->delete()){ //deletes the object
-            return 'Deleted successfully'; //shows a message when the delete operation was successful.   
+
+            return 'Deleted successfully'; //shows a message when the delete operation was successful.
+
         }
+
     }
     
 6. Repay
