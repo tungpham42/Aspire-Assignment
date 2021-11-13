@@ -231,3 +231,23 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
         return number_format($loan->amount / $loan->term, 2);
         
     }
+ 
+Registering and Listing routes
+-
+
+Put the following line into the api.php file, which is inside the /routes folder
+
+    Route::resource('loans', LoanController::class);
+    
+    Route::get('/loans/{loan}/repay', [
+    
+        "uses" => 'App\Http\Controllers\LoanController@repay',
+        
+        "as" => 'repay'
+        
+    ]);
+    
+Now we can list the routes with this command
+
+    php artisan route:list
+
