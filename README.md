@@ -160,7 +160,7 @@ Firstly, run the command
 
 Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that we should take care of: `index`, `store`, `show`, `update`, `destroy`, and `repay`. The `repay` method must be written manually.
 
-1. Index
+1. Index - get all loans
 
     public function index()
     
@@ -172,7 +172,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     
 <img width="515" alt="index" src="https://user-images.githubusercontent.com/3462233/141601058-5fcea9fd-8b5f-4967-99c9-4214487f73fe.png">
     
-2. Store
+2. Store - create new loan
 
     public function store(Request $request)
 
@@ -200,7 +200,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     
 <img width="515" alt="store" src="https://user-images.githubusercontent.com/3462233/141601068-51df9b62-4cc2-4c9d-a77a-205fc4d1b2c3.png">
     
-3. Show
+3. Show - get a specific loan
 
     public function show($id)
 
@@ -212,7 +212,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     
 <img width="334" alt="show" src="https://user-images.githubusercontent.com/3462233/141601066-266b3ad6-db23-4f17-a421-2bfdb9561ab1.png">
     
-4. Update
+4. Update - edit a specific loan
 
     public function update(Request $request, $id)
 
@@ -240,7 +240,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     
 <img width="466" alt="update" src="https://user-images.githubusercontent.com/3462233/141601063-268401e8-1a6f-4409-84d8-48fdbf4bd557.png">
     
-5. Destroy
+5. Destroy - delete a loan
 
     public function destroy($id)
 
@@ -258,7 +258,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     
 <img width="369" alt="destroy" src="https://user-images.githubusercontent.com/3462233/141601061-8c151c5f-7a36-4390-8136-f53132b20769.png">
     
-6. Repay
+6. Repay - save a repayment by dividing `amount` by `term`
 
     public function repay($id)
     
