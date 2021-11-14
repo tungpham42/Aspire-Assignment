@@ -281,7 +281,7 @@ Registering and Listing routes
 
 Put the following line into the api.php file, which is inside the /routes folder
 
-    Route::resource('loans', LoanController::class);
+    Route::resource('loans', LoanController::class)->middleware('auth.basic');
     
     Route::get('/loans/{loan}/repay', [
     
@@ -289,7 +289,7 @@ Put the following line into the api.php file, which is inside the /routes folder
         
         "as" => 'loans.repay'
         
-    ]);
+    ])->middleware('auth.basic');
     
 Now we can list the routes with this command
 
