@@ -42,7 +42,7 @@ If you don't have Composer installed, just go to https://getcomposer.org/downloa
 Setup Database
 -
 
-Navigate to .env file, then edit
+Navigate to `.env` file, then edit
 
     DB_DATABASE=sample_db
     
@@ -59,7 +59,7 @@ Run this code to create Model, Migration and Factory files
 
     php artisan make:model Loan -mf
     
-We add the following code into the Loan.php model file inside the app/Models folder
+We add the following code into the `Loan.php` model file inside the `app/Models` folder
 
     protected $fillable = [
     
@@ -72,7 +72,7 @@ We add the following code into the Loan.php model file inside the app/Models fol
 <img width="534" alt="Screen Shot 2021-11-14 at 14 42 59" src="https://user-images.githubusercontent.com/3462233/141672231-b6752e89-ba69-4008-8414-117e315cbc92.png">
 
 
-Now we modify the migrate file in the /database/migrations folder
+Now we modify the migrate file `2021_11_12_125415_create_loans_table.php` (the file name may vary depending on the date you run the above command) in the `/database/migrations` folder
 
     public function up()
     
@@ -103,7 +103,7 @@ Then we run the following command to create the table
 Seeding
 -
 
-We should modify the LoanFactory.php file first, this file is located in /database/factories folder
+We should modify the `LoanFactory.php` file first, this file is located in `/database/factories` folder
 
     public function definition()
     
@@ -121,7 +121,7 @@ We should modify the LoanFactory.php file first, this file is located in /databa
 
 <img width="664" alt="Screen Shot 2021-11-13 at 12 36 47" src="https://user-images.githubusercontent.com/3462233/141607214-3c3dc5f2-58f1-4970-b9af-63752164760c.png">
 
-After that, we modify the DatabaseSeeder.php file inside the /database/seeders folder
+After that, we modify the `DatabaseSeeder.php` file inside the `/database/seeders` folder
 
     public function run()
     
@@ -158,7 +158,7 @@ Firstly, run the command
 
     php artisan make:controller LoanController --resource
 
-Now, go to app/Http/Controllers/LoanController.php, there are 6 methods that we should take care of: index, store, show, update, destroy, and repay.
+Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that we should take care of: `index`, `store`, `show`, `update`, `destroy`, and `repay`. The `repay` method must be written manually.
 
 1. Index
 
@@ -282,7 +282,7 @@ Now, go to app/Http/Controllers/LoanController.php, there are 6 methods that we 
 Registering and Listing routes
 -
 
-Put the following line into the api.php file, which is inside the /routes folder
+Put the following line into the `api.php` file, which is inside the `/routes` folder
 
     Route::resource('loans', LoanController::class)->middleware('auth.basic');
     
@@ -312,12 +312,12 @@ After all, we can now run this app in localhost
 
     php artisan serve
     
-It will use port 8000, so please navigate to http://localhost:8000
+It will use port `8000`, so please navigate to `http://localhost:8000`
 
 Basic Authentication
 -
 
-As this app only allows authenticated users to use, we need to implement a Authentication system. For this test, I choose to use Basic Auth. I added `middleware('auth.basic')` to routes of api.php inside /routes folder. By default, the auth.basic middleware will assume the email column on your users database table is the user's "username". In this test, the username is `tung.42@gmail.com` and the password is `12345`.
+As this app only allows authenticated users to use, we need to implement a Authentication system. For this test, I choose to use Basic Auth. I added `middleware('auth.basic')` to routes of `api.php` inside `/routes` folder. By default, the auth.basic middleware will assume the email column on your users database table is the user's "username". In this test, the username is `tung.42@gmail.com` and the password is `12345`.
 
 <img width="732" alt="Screen Shot 2021-11-13 at 13 11 33" src="https://user-images.githubusercontent.com/3462233/141608183-b7ad2fb7-887d-450b-8a6f-101a8f0172db.png">
 
@@ -328,11 +328,11 @@ When you use the API, you must fill in the credentials.
 Run the API
 -
 
-- http://localhost:8000/api/loans -> Get all loans
-- http://localhost:8000/api/loans/42 -> Get loan with ID 42
-- http://localhost:8000/api/loans -> Create new loan, with POST method and `amount` and `term` values
-- http://localhost:8000/api/loans/42?amount=5000&term=52 -> Update loan, with PATCH method
-- http://localhost:8000/api/loans/42 -> Delete loan, with DELETE method
-- http://localhost:8000/api/loans/42/repay -> Repay weekly amount
+- `http://localhost:8000/api/loans` -> Get all loans
+- `http://localhost:8000/api/loans/42` -> Get loan with ID 42
+- `http://localhost:8000/api/loans` -> Create new loan, with POST method and `amount` and `term` values
+- `http://localhost:8000/api/loans/42?amount=5000&term=52` -> Update loan, with PATCH method
+- `http://localhost:8000/api/loans/42` -> Delete loan, with DELETE method
+- `http://localhost:8000/api/loans/42/repay` -> Repay weekly amount
 
-If you have any query, please contact me at tung.42@gmail.com
+If you have any query, please contact me at `tung.42@gmail.com`
