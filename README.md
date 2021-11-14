@@ -55,7 +55,7 @@ with your desired credentials
 Migration
 -
 
-Run this code to create Model, Migration and Factory files
+Run this command to create Model, Migration and Factory files
 
     php artisan make:model Loan -mf
     
