@@ -17,6 +17,7 @@ class CreateLoansTable extends Migration
             $table->id();
             $table->integer('amount');
             $table->integer('term');
+            $table->double('repayment')->default('0');
             $table->timestamps();
         });
     }

@@ -78,7 +78,9 @@ class LoanController extends Controller
     public function repay($id)
     {
         $loan = Loan::findorFail($id);
-        return number_format($loan->amount / $loan->term, 2) . ' VND';
+        $loan->repayment = $loan->amount / $loan->term;
+        $loan->save();
+        return number_format($loan->repayment, 2) . ' VND';
     }
 
     /**
