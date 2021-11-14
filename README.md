@@ -83,12 +83,15 @@ Now we modify the migrate file in the /database/migrations folder
             
             $table->integer('term');
             
+            $table->double('repayment')->default('0');
+            
             $table->timestamps();
             
         });
         
     }
-<img width="649" alt="Screen Shot 2021-11-13 at 11 05 36" src="https://user-images.githubusercontent.com/3462233/141605042-91433360-e007-4813-8746-f32963e1a41f.png">
+<img width="591" alt="Screen Shot 2021-11-14 at 09 28 20" src="https://user-images.githubusercontent.com/3462233/141665121-ebb196e1-dccd-4b00-b045-ad827f191064.png">
+
 
 Then we run the following command to create the table
 
@@ -142,6 +145,9 @@ Then we run the following command
 
     php artisan migrate:fresh --seed
  
+<img width="517" alt="Screen Shot 2021-11-14 at 09 27 50" src="https://user-images.githubusercontent.com/3462233/141665138-225bc57b-7f47-4a22-858f-76ed6f33734f.png">
+ 
+
 Creating the API
 -
 
@@ -257,11 +263,18 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
     
         $loan = Loan::findorFail($id);
         
-        return number_format($loan->amount / $loan->term, 2) . ' VND';
+        $loan->repayment = $loan->amount / $loan->term;
+        
+        $loan->save();
+        
+        return number_format($loan->repayment, 2) . ' VND';
         
     }
  
 <img width="633" alt="repay" src="https://user-images.githubusercontent.com/3462233/141601059-3dce9828-785d-421b-aea1-400de5438aec.png">
+
+<img width="545" alt="Screen Shot 2021-11-14 at 09 29 02" src="https://user-images.githubusercontent.com/3462233/141665168-fafe3b66-928a-4217-9d74-254cc9269913.png">
+
 Registering and Listing routes
 -
 
