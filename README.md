@@ -72,7 +72,7 @@ We add the following code into the `Loan.php` model file inside the `app/Models`
 <img width="534" alt="Screen Shot 2021-11-14 at 14 42 59" src="https://user-images.githubusercontent.com/3462233/141672231-b6752e89-ba69-4008-8414-117e315cbc92.png">
 
 
-Now we modify the migrate file `2021_11_12_125415_create_loans_table.php` (the file name may vary depending on the date you run the above command) in the `/database/migrations` folder
+Now we modify the migrate file `2021_11_12_125415_create_loans_table.php` (the file name may vary depending on the date you run the above command) in the `/database/migrations` folder. The `amount` and `term` will be integer, and `repayment` will be double with the default value `0`.
 
     public function up()
     
@@ -96,7 +96,7 @@ Now we modify the migrate file `2021_11_12_125415_create_loans_table.php` (the f
 <img width="591" alt="Screen Shot 2021-11-14 at 09 28 20" src="https://user-images.githubusercontent.com/3462233/141665121-ebb196e1-dccd-4b00-b045-ad827f191064.png">
 
 
-Then we run the following command to create the table
+Then we run the following command to create the tables
 
     php artisan migrate
 
