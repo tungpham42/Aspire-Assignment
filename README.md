@@ -271,7 +271,8 @@ Now, go to app/Http/Controllers/LoanController, there are 6 methods that we shou
         
     }
  
-<img width="633" alt="repay" src="https://user-images.githubusercontent.com/3462233/141601059-3dce9828-785d-421b-aea1-400de5438aec.png">
+<img width="572" alt="Screen Shot 2021-11-14 at 09 37 42" src="https://user-images.githubusercontent.com/3462233/141665284-46d96def-ddae-4871-bab7-b6c45afb2c27.png">
+
 
 <img width="545" alt="Screen Shot 2021-11-14 at 09 29 02" src="https://user-images.githubusercontent.com/3462233/141665168-fafe3b66-928a-4217-9d74-254cc9269913.png">
 
