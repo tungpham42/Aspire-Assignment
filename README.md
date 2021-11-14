@@ -59,7 +59,7 @@ Run this code to create Model, Migration and Factory files
 
     php artisan make:model Loan -mf
     
-We add the following code into the Loan model file inside the app/Models folder
+We add the following code into the Loan.php model file inside the app/Models folder
 
     protected $fillable = [
     
@@ -68,7 +68,10 @@ We add the following code into the Loan model file inside the app/Models folder
         'term',
         
     ];
-    
+ 
+<img width="534" alt="Screen Shot 2021-11-14 at 14 42 59" src="https://user-images.githubusercontent.com/3462233/141672231-b6752e89-ba69-4008-8414-117e315cbc92.png">
+
+
 Now we modify the migrate file in the /database/migrations folder
 
     public function up()
