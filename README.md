@@ -155,7 +155,7 @@ Firstly, run the command
 
     php artisan make:controller LoanController --resource
 
-Now, go to app/Http/Controllers/LoanController, there are 6 methods that we should take care of: index, store, show, update, destroy, and repay.
+Now, go to app/Http/Controllers/LoanController.php, there are 6 methods that we should take care of: index, store, show, update, destroy, and repay.
 
 1. Index
 
