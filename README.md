@@ -121,7 +121,7 @@ We should modify the `LoanFactory.php` file first, this file is located in `/dat
 
 <img width="664" alt="Screen Shot 2021-11-13 at 12 36 47" src="https://user-images.githubusercontent.com/3462233/141607214-3c3dc5f2-58f1-4970-b9af-63752164760c.png">
 
-After that, we modify the `DatabaseSeeder.php` file inside the `/database/seeders` folder
+After that, we modify the `DatabaseSeeder.php` file inside the `/database/seeders` folder. When triggered, the seeder will create `500` loans into the `loans` table, and will create a sample user whom email is `tung.42@gmail.com` and password is `12345`.
 
     public function run()
     
