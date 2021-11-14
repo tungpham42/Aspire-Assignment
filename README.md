@@ -308,7 +308,7 @@ I have used the Postman collection to test this app's API. I put it in the root 
 Run
 -
 
-After all, we can now run this app in localhost
+After all, we can now run this app in localhost with this command
 
     php artisan serve
     
