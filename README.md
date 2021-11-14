@@ -103,7 +103,7 @@ Then we run the following command to create the table
 Seeding
 -
 
-We should modify the Factory file first, this file is located in /database/factories folder
+We should modify the LoanFactory.php file first, this file is located in /database/factories folder
 
     public function definition()
     
