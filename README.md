@@ -103,7 +103,7 @@ Then we run the following command to create the table
 Seeding
 -
 
-We should modify the `LoanFactory.php` file first, this file is located in `/database/factories` folder
+We should modify the `LoanFactory.php` file first, this file is located in `/database/factories` folder. The `amount` will be generated randomly from `500` to `500000000` VND and the `term` will be from `1` to `52` week(s).
 
     public function definition()
     
