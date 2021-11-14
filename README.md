@@ -312,7 +312,7 @@ After all, we can now run this app in localhost
 
     php artisan serve
     
-It will use port `8000`, so please navigate to `http://localhost:8000`
+It will use port `8000`, so please navigate to http://localhost:8000
 
 Basic Authentication
 -
@@ -328,11 +328,11 @@ When you use the API, you must fill in the credentials.
 Run the API
 -
 
-- `http://localhost:8000/api/loans` -> Get all loans
-- `http://localhost:8000/api/loans/42` -> Get loan with ID 42
-- `http://localhost:8000/api/loans` -> Create new loan, with POST method and `amount` and `term` values
-- `http://localhost:8000/api/loans/42?amount=5000&term=52` -> Update loan, with PATCH method
-- `http://localhost:8000/api/loans/42` -> Delete loan, with DELETE method
-- `http://localhost:8000/api/loans/42/repay` -> Repay weekly amount
+- http://localhost:8000/api/loans -> Get all loans
+- http://localhost:8000/api/loans/42 -> Get loan with ID 42
+- http://localhost:8000/api/loans -> Create new loan, with POST method and `amount` and `term` values
+- http://localhost:8000/api/loans/42?amount=5000&term=52 -> Update loan, with PATCH method
+- http://localhost:8000/api/loans/42 -> Delete loan, with DELETE method
+- http://localhost:8000/api/loans/42/repay -> Repay weekly amount
 
 If you have any query, please contact me at `tung.42@gmail.com`
