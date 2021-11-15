@@ -40,16 +40,20 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [ //inputs are not empty or null
-            'amount' => 'required|integer|gt:50000',
-            'term' => 'required|integer|gte:1|lte:52',
-        ]);
+        if (Auth::user()->name == 'admin') {
+            $this->validate($request, [ //inputs are not empty or null
+                'amount' => 'required|integer|gt:50000',
+                'term' => 'required|integer|gte:1|lte:52',
+            ]);
 
-        $loan = new Loan;
-        $loan->amount = $request->input('amount'); //retrieving user inputs
-        $loan->term = $request->input('term');  //retrieving user inputs
-        $loan->save(); //storing values as an object
-        return $loan; //returns the stored value if the operation was successful.
+            $loan = new Loan;
+            $loan->amount = $request->input('amount'); //retrieving user inputs
+            $loan->term = $request->input('term');  //retrieving user inputs
+            $loan->save(); //storing values as an object
+            return $loan; //returns the stored value if the operation was successful.
+        } else {
+            return 'Admin only';
+        }
     }
 
     /**
@@ -97,16 +101,20 @@ class LoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [ //inputs are not empty or null
-            'amount' => 'required|integer|gt:50000',
-            'term' => 'required|integer|gte:1|lte:52',
-        ]);
+        if (Auth::user()->name == 'admin') {
+            $this->validate($request, [ //inputs are not empty or null
+                'amount' => 'required|integer|gt:50000',
+                'term' => 'required|integer|gte:1|lte:52',
+            ]);
 
-        $loan = Loan::findorFail($id); // uses the id to search values that need to be updated.
-        $loan->amount = $request->input('amount'); //retrieving user inputs
-        $loan->term = $request->input('term');  //retrieving user inputs
-        $loan->save(); //storing values as an object
-        return $loan; //returns the stored value if the operation was successful.
+            $loan = Loan::findorFail($id); // uses the id to search values that need to be updated.
+            $loan->amount = $request->input('amount'); //retrieving user inputs
+            $loan->term = $request->input('term');  //retrieving user inputs
+            $loan->save(); //storing values as an object
+            return $loan; //returns the stored value if the operation was successful.
+        } else {
+            return 'Admin only';
+        }
     }
 
     /**
@@ -117,9 +125,13 @@ class LoanController extends Controller
      */
     public function destroy($id)
     {
-        $loan = Loan::findorFail($id); //searching for object in database using ID
-        if($loan->delete()){ //deletes the object
-            return 'Deleted successfully'; //shows a message when the delete operation was successful.
+        if (Auth::user()->name == 'admin') {
+            $loan = Loan::findorFail($id); //searching for object in database using ID
+            if ($loan->delete()) { //deletes the object
+                return 'Deleted successfully'; //shows a message when the delete operation was successful.
+            }
+        } else {
+            return 'Admin only';
         }
     }
 }
