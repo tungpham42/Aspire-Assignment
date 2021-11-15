@@ -362,4 +362,12 @@ Run the API
 - http://localhost:8000/api/loans/42 -> Delete loan, with DELETE method
 - http://localhost:8000/api/loans/42/repay -> Repay weekly amount
 
+To get the full source code, you can use this command
+    
+    git clone https://github.com/tungpham42/Aspire-Assignment.git loan-app
+    
+    cd loan-app
+    
+    composer update
+    
 If you have any query, please contact me at tung.42@gmail.com
