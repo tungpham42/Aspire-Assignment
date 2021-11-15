@@ -172,7 +172,7 @@ Firstly, run the command
 
 Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that we should take care of: `index`, `store`, `show`, `update`, `destroy`, and `repay`. The `repay` method must be written manually.
 
-1. Index - get all loans
+1. Index - get all loans, which is only accessible by admin, the credentials are `admin@example.com` and `password`
 
     public function index()
     
