@@ -9,6 +9,8 @@ use Illuminate\Http\Response;
 
 class LoanTest extends TestCase
 {
+    use RefreshDatabase;
+
     protected function withBasicAuth($username = 'tung.42@gmail.com', $password = '12345'): self
     {
         return $this->withHeaders([
@@ -42,7 +44,7 @@ class LoanTest extends TestCase
 
     public function test_delete_specific_loan()
     {
-        $response = $this->withBasicAuth()->delete('/api/loans/501');
+        $response = $this->withBasicAuth()->delete('/api/loans/500');
         $response->assertStatus(200);
     }
 
