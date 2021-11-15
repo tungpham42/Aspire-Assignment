@@ -52,6 +52,52 @@
 			"response": []
 		},
 		{
+			"name": "Get All Loans - Admin",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin@example.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/ecmascript",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Specific Loan",
 			"request": {
 				"auth": {
@@ -123,12 +169,73 @@
 					"formdata": [
 						{
 							"key": "amount",
-							"value": "5000000",
+							"value": "3",
 							"type": "text"
 						},
 						{
 							"key": "term",
-							"value": "42",
+							"value": "52",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Loan - Admin",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin@example.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/ecmascript",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "amount",
+							"value": "500000",
+							"type": "text"
+						},
+						{
+							"key": "term",
+							"value": "52",
 							"type": "text"
 						}
 					]
@@ -156,6 +263,52 @@
 					"basic": [
 						{
 							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin@example.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/loans/42?amount=500000&term=52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"loans",
+						"42"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "500000"
+						},
+						{
+							"key": "term",
+							"value": "52"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Loan - Admin",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
 							"value": "12345",
 							"type": "string"
 						},
@@ -166,10 +319,10 @@
 						}
 					]
 				},
-				"method": "PATCH",
+				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/loans/501?amount=5555555&term=52",
+					"raw": "http://localhost:8000/api/loans/42?amount=a&term=52s",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -178,16 +331,16 @@
 					"path": [
 						"api",
 						"loans",
-						"501"
+						"42"
 					],
 					"query": [
 						{
 							"key": "amount",
-							"value": "5555555"
+							"value": "a"
 						},
 						{
 							"key": "term",
-							"value": "52"
+							"value": "52s"
 						}
 					]
 				}
@@ -225,6 +378,42 @@
 						"api",
 						"loans",
 						"501"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Loan - Admin",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin@example.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/loans/500",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"loans",
+						"500"
 					]
 				}
 			},
