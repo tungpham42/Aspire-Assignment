@@ -172,7 +172,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     
 <img width="515" alt="index" src="https://user-images.githubusercontent.com/3462233/141601058-5fcea9fd-8b5f-4967-99c9-4214487f73fe.png">
     
-2. Store - create new loan
+2. Store - create new loan, the values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
 
     public function store(Request $request)
 
@@ -180,9 +180,9 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
 
         $this->validate($request, [ //inputs are not empty or null
 
-            'amount' => 'required',
+            'amount' => 'required|integer|gt:50000',
 
-            'term' => 'required',
+            'term' => 'required|integer|gte:1|lte:52',
 
         ]);
 
@@ -198,7 +198,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
 
     }
     
-<img width="515" alt="store" src="https://user-images.githubusercontent.com/3462233/141601068-51df9b62-4cc2-4c9d-a77a-205fc4d1b2c3.png">
+<img width="492" alt="Screen Shot 2021-11-15 at 14 19 16" src="https://user-images.githubusercontent.com/3462233/141739107-fab1098d-3acd-47ac-a4f2-550da6f528d2.png">
     
 3. Show - get a specific loan
 
@@ -212,7 +212,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     
 <img width="334" alt="show" src="https://user-images.githubusercontent.com/3462233/141601066-266b3ad6-db23-4f17-a421-2bfdb9561ab1.png">
     
-4. Update - edit a specific loan
+4. Update - edit a specific loan, the values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
 
     public function update(Request $request, $id)
 
@@ -220,9 +220,9 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
 
         $this->validate($request, [ //inputs are not empty or null
 
-            'amount' => 'required',
+            'amount' => 'required|integer|gt:50000',
 
-            'term' => 'required',
+            'term' => 'required|integer|gte:1|lte:52',
 
         ]);
 
@@ -238,7 +238,8 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
 
     }
     
-<img width="466" alt="update" src="https://user-images.githubusercontent.com/3462233/141601063-268401e8-1a6f-4409-84d8-48fdbf4bd557.png">
+<img width="518" alt="Screen Shot 2021-11-15 at 14 19 06" src="https://user-images.githubusercontent.com/3462233/141739019-51821749-be30-4aa0-81d0-1728847eb49e.png">
+
     
 5. Destroy - delete a loan
 
