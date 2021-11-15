@@ -193,33 +193,42 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
 <img width="574" alt="Screen Shot 2021-11-15 at 15 48 33" src="https://user-images.githubusercontent.com/3462233/141750705-78d2df38-4eb5-4c0a-a18a-b2e3304cd67a.png">
 
     
-2. Store - create new loan, the values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
+2. Store - create new loan,, which is only accessible by admin, the credentials are `admin@example.com` and `password`. The values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
 
     public function store(Request $request)
 
     {
+        
+        if (Auth::user()->name == 'admin') {
+        
+            $this->validate($request, [ //inputs are not empty or null
 
-        $this->validate($request, [ //inputs are not empty or null
+                'amount' => 'required|integer|gt:50000',
 
-            'amount' => 'required|integer|gt:50000',
+                'term' => 'required|integer|gte:1|lte:52',
 
-            'term' => 'required|integer|gte:1|lte:52',
+            ]);
 
-        ]);
+            $loan = new Loan;
 
-        $loan = new Loan;
+            $loan->amount = $request->input('amount'); //retrieving user inputs
 
-        $loan->amount = $request->input('amount'); //retrieving user inputs
+            $loan->term = $request->input('term');  //retrieving user inputs
 
-        $loan->term = $request->input('term');  //retrieving user inputs
+            $loan->save(); //storing values as an object
 
-        $loan->save(); //storing values as an object
+            return $loan; //returns the stored value if the operation was successful.
 
-        return $loan; //returns the stored value if the operation was successful.
+        } else {
+        
+            return 'Admin only';
+            
+        }
 
     }
     
-<img width="492" alt="Screen Shot 2021-11-15 at 14 19 16" src="https://user-images.githubusercontent.com/3462233/141739107-fab1098d-3acd-47ac-a4f2-550da6f528d2.png">
+<img width="517" alt="Screen Shot 2021-11-15 at 16 09 04" src="https://user-images.githubusercontent.com/3462233/141753892-f0db6e21-8039-4a39-b111-bf6b55a4cf72.png">
+
     
 3. Show - get a specific loan
 
@@ -233,52 +242,69 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     
 <img width="334" alt="show" src="https://user-images.githubusercontent.com/3462233/141601066-266b3ad6-db23-4f17-a421-2bfdb9561ab1.png">
     
-4. Update - edit a specific loan, the values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
+4. Update - edit a specific loan, which is only accessible by admin, the credentials are `admin@example.com` and `password`. The values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
 
     public function update(Request $request, $id)
 
     {
+    
+        if (Auth::user()->name == 'admin') {
+        
+            $this->validate($request, [ //inputs are not empty or null
 
-        $this->validate($request, [ //inputs are not empty or null
+                'amount' => 'required|integer|gt:50000',
 
-            'amount' => 'required|integer|gt:50000',
+                'term' => 'required|integer|gte:1|lte:52',
 
-            'term' => 'required|integer|gte:1|lte:52',
+            ]);
 
-        ]);
+            $loan = Loan::findorFail($id); // uses the id to search values that need to be updated.
 
-        $loan = Loan::findorFail($id); // uses the id to search values that need to be updated.
+            $loan->amount = $request->input('amount'); //retrieving user inputs
 
-        $loan->amount = $request->input('amount'); //retrieving user inputs
+            $loan->term = $request->input('term');  //retrieving user inputs
 
-        $loan->term = $request->input('term');  //retrieving user inputs
+            $loan->save(); //storing values as an object
 
-        $loan->save(); //storing values as an object
-
-        return $loan; //returns the stored value if the operation was successful.
-
+            return $loan; //returns the stored value if the operation was successful.
+            
+        } else {
+        
+            return 'Admin only';
+            
+        }
+            
     }
     
-<img width="518" alt="Screen Shot 2021-11-15 at 14 19 06" src="https://user-images.githubusercontent.com/3462233/141739019-51821749-be30-4aa0-81d0-1728847eb49e.png">
+<img width="516" alt="Screen Shot 2021-11-15 at 16 08 52" src="https://user-images.githubusercontent.com/3462233/141753852-bb7694f6-9a9a-491f-8528-813bca45bc5c.png">
+
 
     
-5. Destroy - delete a loan
+5. Destroy - delete a loan, which is only accessible by admin, the credentials are `admin@example.com` and `password`
 
     public function destroy($id)
 
     {
 
-        $loan = Loan::findorFail($id); //searching for object in database using ID
+        if (Auth::user()->name == 'admin') {
 
-        if($loan->delete()){ //deletes the object
+            $loan = Loan::findorFail($id); //searching for object in database using ID
 
-            return 'Deleted successfully'; //shows a message when the delete operation was successful.
+            if($loan->delete()){ //deletes the object
 
+                return 'Deleted successfully'; //shows a message when the delete operation was successful.
+
+            }
+            
+        } else {
+        
+            return 'Admin only';
+            
         }
 
     }
     
-<img width="369" alt="destroy" src="https://user-images.githubusercontent.com/3462233/141601061-8c151c5f-7a36-4390-8136-f53132b20769.png">
+<img width="358" alt="Screen Shot 2021-11-15 at 16 08 41" src="https://user-images.githubusercontent.com/3462233/141753806-38f48d68-545f-458a-8278-be872e2597d1.png">
     
 6. Repay - save a repayment by dividing `amount` by `term`
 
