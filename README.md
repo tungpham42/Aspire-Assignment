@@ -122,7 +122,7 @@ We should modify the `LoanFactory.php` file first, this file is located in `/dat
 <img width="623" alt="Screen Shot 2021-11-15 at 14 28 55" src="https://user-images.githubusercontent.com/3462233/141739760-72cc7562-f4db-4417-b76d-beae12501602.png">
 
 
-After that, we modify the `DatabaseSeeder.php` file inside the `/database/seeders` folder. When triggered, the seeder will create `500` loans into the `loans` table, and will create a sample user whom email is `tung.42@gmail.com` and password is `12345`.
+After that, we modify the `DatabaseSeeder.php` file inside the `/database/seeders` folder. When triggered, the seeder will create `500` loans into the `loans` table, and will create a sample user whom email is `tung.42@gmail.com` and password is `12345`. Also, I added the `admin` user to use the List all loans function.
 
     public function run()
     
@@ -130,7 +130,17 @@ After that, we modify the `DatabaseSeeder.php` file inside the `/database/seeder
     
         Loan::factory(500)->create();
         
-        DB::table('users')->insert([
+        DB::table('users')->insert([[
+        
+            'name' => "admin",
+            
+            'email' => 'admin@example.com',
+            
+            'password' => bcrypt('password'),
+            
+        ],
+        
+        [
         
             'name' => "Tung Pham",
             
@@ -138,11 +148,12 @@ After that, we modify the `DatabaseSeeder.php` file inside the `/database/seeder
             
             'password' => bcrypt('12345'),
             
-        ]);
+        ]]);
         
     }
 
-<img width="454" alt="Screen Shot 2021-11-13 at 13 56 55" src="https://user-images.githubusercontent.com/3462233/141609338-b9a64b9c-0016-42ad-948e-c41c46f4dc2a.png">
+<img width="443" alt="Screen Shot 2021-11-15 at 15 45 39" src="https://user-images.githubusercontent.com/3462233/141750274-2fd4ccd5-94d9-4e40-ba42-6bb3a7999321.png">
+
 
 
 Then we run the following command
@@ -166,12 +177,21 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
     public function index()
     
     {
-
-        return Loan::orderBy('created_at', 'asc')->get();  //returns values in ascending order
     
+        if (Auth::user()->name == 'admin') {
+        
+            return Loan::orderBy('created_at', 'asc')->get();  //returns values in ascending order
+            
+        } else {
+        
+            return 'Admin only';
+            
+        }
+        
     }
-    
-<img width="515" alt="index" src="https://user-images.githubusercontent.com/3462233/141601058-5fcea9fd-8b5f-4967-99c9-4214487f73fe.png">
+
+<img width="574" alt="Screen Shot 2021-11-15 at 15 48 33" src="https://user-images.githubusercontent.com/3462233/141750705-78d2df38-4eb5-4c0a-a18a-b2e3304cd67a.png">
+
     
 2. Store - create new loan, the values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
 
