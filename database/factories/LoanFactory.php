@@ -18,7 +18,7 @@ class LoanFactory extends Factory
     public function definition()
     {
         return [
-            'amount' => $this->faker->numberBetween(500, 500000000),
+            'amount' => $this->faker->numberBetween(50000, 500000000),
             'term' => $this->faker->numberBetween(1, 52),
         ];
     }
