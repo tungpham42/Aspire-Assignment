@@ -16,7 +16,7 @@ class LoanSeederTest extends TestCase
      *
      * @return void
      */
-    public function test_seed_all_loans()
+    public function testSeedAllLoans()
     {
         // Run the DatabaseSeeder...
         Artisan::call('migrate:fresh --seed');
