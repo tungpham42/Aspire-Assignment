@@ -193,7 +193,7 @@ Now, go to `app/Http/Controllers/LoanController.php`, there are 6 methods that w
 <img width="574" alt="Screen Shot 2021-11-15 at 15 48 33" src="https://user-images.githubusercontent.com/3462233/141750705-78d2df38-4eb5-4c0a-a18a-b2e3304cd67a.png">
 
     
-2. Store - create new loan,, which is only accessible by admin, the credentials are `admin@example.com` and `password`. The values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
+2. Store - create new loan, which is only accessible by admin, the credentials are `admin@example.com` and `password`. The values are validated. `amount` and `term` are required and must be number. `amount` must be greater than 50000 and `term` must be from 1 to 52.
 
     public function store(Request $request)
 
