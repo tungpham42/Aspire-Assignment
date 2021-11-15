@@ -17,10 +17,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Loan::factory(500)->create();
-        DB::table('users')->insert([
+        DB::table('users')->insert([[
+            'name' => "admin",
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+        ],
+        [
             'name' => "Tung Pham",
             'email' => 'tung.42@gmail.com',
             'password' => bcrypt('12345'),
-        ]);
+        ]]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Loan;
+use Auth;
 
 class LoanController extends Controller
 {
@@ -14,7 +15,11 @@ class LoanController extends Controller
      */
     public function index()
     {
-        return Loan::orderBy('created_at', 'asc')->get();  //returns values in ascending order
+        if (Auth::user()->name == 'admin') {
+            return Loan::orderBy('created_at', 'asc')->get();  //returns values in ascending order
+        } else {
+            return 'Admin only';
+        }
     }
 
     /**
