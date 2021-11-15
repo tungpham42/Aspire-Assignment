@@ -307,9 +307,15 @@ To create a test file, run the following command
 
     php artisan make:test LoanTest --unit
     
-Then go to `tests/Unit/LoanTest.php` file. In this file, I have written 6 tests for 6 methods in the `LoanController.php` file. Plus, I created a method to Authenticate the test.
+and
+    
+    php artisan make:test LoanSeederTest --unit
+    
+Then go to `tests/Unit/LoanTest.php` file. In this file, I have written 6 tests for 6 methods in the `LoanController.php` file. Plus, I created a method to Authenticate the test. Also, I have created a test file for seeding data `tests/Unit/LoanSeederTest.php`.
 
-Here is the file
+Here are the files
+
+<img width="464" alt="Screen Shot 2021-11-15 at 13 12 51" src="https://user-images.githubusercontent.com/3462233/141731730-889031d6-bbb0-48d4-8362-1b70e0086fb9.png">
 
 <img width="806" alt="Screen Shot 2021-11-15 at 12 10 43" src="https://user-images.githubusercontent.com/3462233/141726154-5ab98fef-0ff9-4e97-b5b7-527b2871085f.png">
 
@@ -319,9 +325,10 @@ To run the tests, run the command
     
 This is the result
 
-<img width="439" alt="Screen Shot 2021-11-15 at 12 06 45" src="https://user-images.githubusercontent.com/3462233/141726312-cf34a06a-64cb-42c7-b889-8ff66369a29d.png">
+<img width="443" alt="Screen Shot 2021-11-15 at 13 12 42" src="https://user-images.githubusercontent.com/3462233/141731762-6f514867-af12-4482-8b50-039308d45857.png">
 
-All 6 tests have passed.
+
+All 7 tests have passed.
 
 I have used the Postman collection to test this app's API. I put it in the root folder.
 
