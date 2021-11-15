@@ -303,6 +303,26 @@ Now we can list the routes with this command
 Testing
 -
 
+To create a test file, run the following command
+
+    php artisan make:test LoanTest --unit
+    
+Then go to `tests/Unit/LoanTest.php` file. In this file, I have written 6 tests for 6 methods in the `LoanController.php` file. Plus, I created a method to Authenticate the test.
+
+Here is the file
+
+<img width="806" alt="Screen Shot 2021-11-15 at 12 10 43" src="https://user-images.githubusercontent.com/3462233/141726154-5ab98fef-0ff9-4e97-b5b7-527b2871085f.png">
+
+To run the tests, run the command
+
+    php artisan test
+    
+This is the result
+
+<img width="439" alt="Screen Shot 2021-11-15 at 12 06 45" src="https://user-images.githubusercontent.com/3462233/141726312-cf34a06a-64cb-42c7-b889-8ff66369a29d.png">
+
+All 6 tests have passed.
+
 I have used the Postman collection to test this app's API. I put it in the root folder.
 
 Run
