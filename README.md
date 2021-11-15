@@ -365,7 +365,8 @@ Here are the files
 
 <img width="464" alt="Screen Shot 2021-11-15 at 13 12 51" src="https://user-images.githubusercontent.com/3462233/141731730-889031d6-bbb0-48d4-8362-1b70e0086fb9.png">
 
-<img width="806" alt="Screen Shot 2021-11-15 at 12 10 43" src="https://user-images.githubusercontent.com/3462233/141726154-5ab98fef-0ff9-4e97-b5b7-527b2871085f.png">
+<img width="981" alt="Screen Shot 2021-11-15 at 16 28 11" src="https://user-images.githubusercontent.com/3462233/141756783-ad4028d8-c53f-45a1-8fdf-7fba7617bb5d.png">
+
 
 To run the tests, run the command
 
