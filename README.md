@@ -111,7 +111,7 @@ We should modify the `LoanFactory.php` file first, this file is located in `/dat
     
         return [
         
-            'amount' => $this->faker->numberBetween(500, 500000000),
+            'amount' => $this->faker->numberBetween(50000, 500000000),
             
             'term' => $this->faker->numberBetween(1, 52),
             
@@ -119,7 +119,8 @@ We should modify the `LoanFactory.php` file first, this file is located in `/dat
         
     }
 
-<img width="664" alt="Screen Shot 2021-11-13 at 12 36 47" src="https://user-images.githubusercontent.com/3462233/141607214-3c3dc5f2-58f1-4970-b9af-63752164760c.png">
+<img width="623" alt="Screen Shot 2021-11-15 at 14 28 55" src="https://user-images.githubusercontent.com/3462233/141739760-72cc7562-f4db-4417-b76d-beae12501602.png">
+
 
 After that, we modify the `DatabaseSeeder.php` file inside the `/database/seeders` folder. When triggered, the seeder will create `500` loans into the `loans` table, and will create a sample user whom email is `tung.42@gmail.com` and password is `12345`.
 
