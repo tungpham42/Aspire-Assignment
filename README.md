@@ -363,9 +363,10 @@ Then go to `tests/Unit/LoanTest.php` file. In this file, I have written 6 tests 
 
 Here are the files
 
-<img width="464" alt="Screen Shot 2021-11-15 at 13 12 51" src="https://user-images.githubusercontent.com/3462233/141731730-889031d6-bbb0-48d4-8362-1b70e0086fb9.png">
+<img width="456" alt="Screen Shot 2021-11-15 at 17 03 37" src="https://user-images.githubusercontent.com/3462233/141762360-43befebd-b71a-4bff-b9a3-5023cee76a57.png">
 
-<img width="981" alt="Screen Shot 2021-11-15 at 16 28 11" src="https://user-images.githubusercontent.com/3462233/141756783-ad4028d8-c53f-45a1-8fdf-7fba7617bb5d.png">
+<img width="1038" alt="Screen Shot 2021-11-15 at 17 03 20" src="https://user-images.githubusercontent.com/3462233/141762433-994e1ba5-62ae-4867-8315-58211f799309.png">
+
 
 
 To run the tests, run the command
