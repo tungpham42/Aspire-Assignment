@@ -36,8 +36,8 @@ class LoanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [ //inputs are not empty or null
-            'amount' => 'required',
-            'term' => 'required',
+            'amount' => 'required|integer|gt:50000',
+            'term' => 'required|integer|gte:1|lte:52',
         ]);
 
         $loan = new Loan;
@@ -93,8 +93,8 @@ class LoanController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [ //inputs are not empty or null
-            'amount' => 'required',
-            'term' => 'required',
+            'amount' => 'required|integer|gt:50000',
+            'term' => 'required|integer|gte:1|lte:52',
         ]);
 
         $loan = Loan::findorFail($id); // uses the id to search values that need to be updated.
